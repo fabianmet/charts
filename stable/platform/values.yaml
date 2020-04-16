@@ -8,7 +8,7 @@
 # See all supported configuration keys in https://github.com/jfrog/charts/tree/master/stable/artifactory
 
 ## All values are under the 'artifactory' sub chart.
-artifactory:
+artifactory-ha:
 
   ## Artifactory
   ## See full list of supported Artifactory options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
@@ -35,6 +35,11 @@ artifactory:
      # xmx: "3g"
      # other: ""
 
+    masterKey: FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    # masterKeySecretName:
+    joinKey: EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    ## Alternatively, you can use a pre-existing secret with a key called join-key by specifying joinKeySecretName
+    # joinKeySecretName:
 
   ## Nginx
   ## See full list of supported Nginx options and documentation in artifactory chart: https://github.com/jfrog/charts/tree/master/stable/artifactory
@@ -87,4 +92,10 @@ pipelines:
   pipelines:
     jfrogUrl: http://artifactory-artifactory.test:8082
     jfrogUrlUI: http://artifactory-artifactory.test:8082
+
+## All values are under the 'xray' sub chart.
+distribution:
+  unifiedUpgradeAllowed: true
+  distribution:
+    jfrogUrl: http://artifactory-artifactory.test:8082
 
